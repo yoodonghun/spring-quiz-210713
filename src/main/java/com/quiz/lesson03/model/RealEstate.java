@@ -8,7 +8,7 @@ public class RealEstate {
    private String address;
    private int area;
    private String type;
-   private int price;
+   private Integer price;
    private Date createdAt;
    private Date updatedAt;
    
