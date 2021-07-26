@@ -8,5 +8,5 @@ import com.quiz.lesson04.model.Realtor;
 public interface RealtorDAO {
    public Realtor insertRealtor(Realtor realtor);
    
-   public Realtor selectRealtorById(int id);
+   public Realtor selectRealtor(int id);
 }

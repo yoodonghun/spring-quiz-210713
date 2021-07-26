@@ -23,9 +23,9 @@ public class lesson04QZ02Controller {
 				@ModelAttribute Realtor realtor,
 				Model model) {
 			
-			realtorBO.addRealtor(realtor);
-			//3. DB select를 해와서 view 페이지에 넣는다
-			Realtor newRealtor = realtorBO.getRealtorById(realtor.getId());
+		realtorBO.insertRealtor(realtor);
+		Realtor newRealtor = realtorBO.getRealtor(realtor.getId());
+		model.addAttribute("realtor", newRealtor);
 			
 			return "lesson04/afterAddRealtor";
 		}
