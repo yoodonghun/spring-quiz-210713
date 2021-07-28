@@ -25,11 +25,11 @@
          </tr>
        </thead>
        <tbody>
-       <c:forEach var="candidate" items="${candidateds}" varStatus="status">
+       <c:forEach var="candidates" items="${candidated}" varStatus="status">
          <tr>
            <td>${status.count }</td>
-           <td><fmt:formatNumber value="${candidate }" type="number"</td>
-           <td><fmt:formatNumber value="${candidate / 100000 }</td>
+           <td><fmt:formatNumber value="${candidate}" type="number" /></td>
+           <td><fmt:formatNumber value="${candidate / totalCount}" type="percent" /></td>
          </tr>
         </c:forEach> 
        </tbody>
