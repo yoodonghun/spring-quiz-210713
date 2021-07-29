@@ -3,7 +3,7 @@ package com.quiz.lesson06.model;
 import java.util.Date;
 
 public class WeatherHistory {
-   private String Date;
+   private Date date;
    private String weather;
    private double temperatures;
    private double precipitation;
@@ -12,11 +12,12 @@ public class WeatherHistory {
    private Date createdAt;
    private Date updatedAt;
    
-public String getDate() {
-	return Date;
+   
+public Date getDate() {
+	return date;
 }
-public void setDate(String date) {
-	Date = date;
+public void setDate(Date date) {
+	this.date = date;
 }
 public String getWeather() {
 	return weather;
@@ -60,6 +61,7 @@ public Date getUpdatedAt() {
 public void setUpdatedAt(Date updatedAt) {
 	this.updatedAt = updatedAt;
 }
+   
 
 
    

@@ -13,9 +13,21 @@ public class WeatherHistoryBO {
 	@Autowired
 	   private WeatherHistoryDAO weatherHistoryDAO;
 	//Err :TooManyResultException => 쿼리에서 가져온 데이터는 여러행인데, 받는 쪽에서 단건의 객체로 받으려 한다
-   public List<WeatherHistory> getWeatherHistory(){
+   public List<WeatherHistory> getWeatherHistoryList(){
 	   
 	   
 	   return weatherHistoryDAO.selectWeatherHistoryList();
    }
+   
+   public void addWeatherHistory(
+			String date, 
+			String weather, 
+			double temperatures, 
+			double precipitation, 
+			String microDust, 
+			double windSpeed) {
+		
+		weatherHistoryDAO.insertWeatherHistory(date, weather, temperatures, precipitation, microDust, windSpeed);
+		
+	}
 }

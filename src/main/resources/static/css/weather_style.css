@@ -2,7 +2,7 @@
 
 #wrap{width: 1200px; height:1000px}
 .leftbox{width:150px; height: 1000px; background-color: #288CD2}
-.logo{width:150px; height:70px; background-color: #ffffff; }
-.nav-link{font-size: 15px}
+.logo{width:150px; height:70px; background-color: #288CD2; }
+.nav-link{font-size: 15px; color:#ffffff}
 .rightbox{width:1050px; height: 1000px}
 .pastWeather{font-size: 30px}
