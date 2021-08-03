@@ -16,50 +16,15 @@
    <div class="container">
       <h1>즐겨 찾기 추가하기</h1>
       <div>
-	      <label for="name">제목</label><br> 
-	      <input type="text" id="name" class="form-control">
-	      <label for="url">주소</label><br> 
-	      <input type="text" id="url" class="form-control"><br>
-	      <button type="button" id="favoriteBtn" class="btn btn-success form-control">추가</button>
+	      제목<br> 
+	      <input type="text" class="form-control">
+	      주소<br> 
+	      <input type="text" class="form-control"><br>
+	      <button type="button" class="btn btn-success form-control">추가</button>
       </div>
       
       <script>
-         $(document).ready(function(){
-        	 $("#favoriteBtn").on("click", function(e){
-        		let name = $("#name").val().trim(); 
-        		let url = $("#url").val().trim();
-        		
-        		if(name == " "){
-        			alert("제목 입력");
-        			return;
-        		}
-        		if(url == " "){
-        			alert("사이트주소 입력");
-        			return;
-        		}
-        		if(url.startsWith("http") ===  false && url.startWith("https") === false)
-        			alert("주소가 틀렸습니다")
-        			return;
-        			  
-        		
-        		//서버 전송
-        		$.ajax({ 
-        			type: "post" //Reauest Method
-        			,data: {'name':name, 'url':url}
-        		    ,url:"/lesson06/qz01/favorite_site"
-        		    ,dataType: 'json' //Response body의 결과값이 json으로
-        		    //AJAX 통신 후 response로는 String 또는 JSON이 반드시 리턴되어야 한다
-        		    ,success: function(data) {
-        		       alert(data.result);
-        		       location.href = "/lesson06/qz01/favorite_site"
-        		    }
-        		    ,error: function(e){
-        		    	alert("error": e);
-        		    }
-        		});
-        	 });
-        	 
-         });
+         
       </script>
    </div>
 </body>
