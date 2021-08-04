@@ -24,7 +24,41 @@
       </div>
       
       <script>
-         
+      $(document).ready(function() {
+			$('#addFavoriteBtn').on('click', function(e) {
+				var title = $('#title').val().trim();
+				var url = $('#url').val().trim();
+				
+				if (title == '') {
+					alert("제목을 입력하세요.");
+					return;
+				}
+				
+				if (url == '') {
+					alert("주소를 입력하세요.");
+					return;
+				}
+				
+				if (url.startsWith("http://") == false || url.startsWith("https://")) {
+					alert("주소 형식이 잘못되었습니다.");
+					return;
+				}
+				
+				$.ajax({
+					type:'post'
+					, url: '/lesson06/quiz01/add_favorite'
+					, data: {'title':title, 'url':url}
+					, success: function(data) {
+						//alert(data.result);
+						if (data.result == 'success') {
+							location.href = "/lesson06/quiz01/favorite_list";
+						}
+					}, error:function(e) {
+						alert("error:" + e);
+					} 
+				});
+			});
+		});
       </script>
    </div>
 </body>

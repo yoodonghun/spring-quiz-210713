@@ -19,7 +19,13 @@
             </tr>
          </thead>
          <tbody>
-         
+            <c:forEach var="site" items="${favoriteList}">
+				<tr>
+					<td>${site.id}</td>
+					<td>${site.name}</td>
+					<td>${site.url}</td>
+				</tr>
+				</c:forEach>
          </tbody>
       </table>
    </div>
