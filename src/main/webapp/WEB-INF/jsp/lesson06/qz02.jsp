@@ -17,10 +17,15 @@
       <h1>즐겨 찾기 추가하기</h1>
       <div>
 	      제목<br> 
-	      <input type="text" class="form-control">
-	      주소<br> 
-	      <input type="text" class="form-control"><br>
-	      <button type="button" class="btn btn-success form-control">추가</button>
+	      <input type="text" id="title" class="form-control">
+	      
+	      
+	      주소<br>
+	      <div class="d-flex">
+		      <input type="text" id="url" class="form-control ">
+		      <button type="button" class="btn btn-info col-1 ml-3">중복확인</button>
+	      </div><br>
+	      <button type="button" id="addFavoriteBtn" class="btn btn-success form-control">추가</button>
       </div>
       
       <script>
@@ -39,19 +44,20 @@
 					return;
 				}
 				
-				if (url.startsWith("http://") == false || url.startsWith("https://")) {
+				if (url.startsWith("http://") == false && url.startsWith("https") == false) {
 					alert("주소 형식이 잘못되었습니다.");
 					return;
 				}
 				
 				$.ajax({
 					type:'post'
-					, url: '/lesson06/quiz01/add_favorite'
+					, url: '/lesson06/qz02/add_favorite'
 					, data: {'title':title, 'url':url}
+				    , dataType : 'json'
 					, success: function(data) {
 						//alert(data.result);
 						if (data.result == 'success') {
-							location.href = "/lesson06/quiz01/favorite_list";
+							location.href = "/lesson06/qz02/favorite_list";
 						}
 					}, error:function(e) {
 						alert("error:" + e);
