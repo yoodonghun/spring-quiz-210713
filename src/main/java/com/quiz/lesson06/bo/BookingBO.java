@@ -16,4 +16,8 @@ public class BookingBO {
    public List<Booking> getBookingnList(){
 	   return bookingDAO.selectBookingList();
    }
+   
+   public int deleteBookingById(int id) {
+	   return bookingDAO.deleteBookingById(id);
+   }
 }

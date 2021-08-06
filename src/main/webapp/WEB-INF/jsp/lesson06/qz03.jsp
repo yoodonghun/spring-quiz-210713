@@ -28,7 +28,7 @@
          </ul>
        </nav>
        
-       <h3>예약 목록 보기</h3>
+       <h3 class="font-weight-bold mt-2">예약 목록 보기</h3>
        <table class="table">
           <thead>
             <tr>
@@ -38,6 +38,7 @@
                <th>숙박인원</th>
                <th>전화번호</th>
                <th>예약상태</th>
+               <th></th>
             </tr>
           </thead>
           <tbody>
@@ -46,16 +47,64 @@
                    <td>${booking.name}</td>
                    <td>
                       
-                      <fmt:formatDate value="${booking.day}" pattern="yyyy년 M월 d일" />
+                      <fmt:formatDate value="${booking.date}" pattern="yyyy년 M월 d일" />
                    </td>
                    <td>${booking.day}</td>
                    <td>${booking.headcount}</td>
                    <td>${booking.phoneNumber}</td>
-                   <td>${booking.state}</td>
+                   <td>
+                      <c:choose>
+                         <c:when test="${booking.state eq '대기중'}">
+                            <span class="text-info">${booking.state}</span>
+                         </c:when>
+                         <c:when test="${booking.state eq '확정'}">
+                            <span class="text-success">${booking.state}</span>
+                         </c:when>
+                         <c:otherwise>
+                            <span class="text-danger">${booking.state}</span>
+                         </c:otherwise>
+                         
+                      </c:choose>
+                   </td>
+                   <td><button type="button" class="delBtn btn btn-danger" data-booking-id=""${booking.id}">삭제</button></td>
+
                 </tr>
              </c:forEach>
+             <div>
+              
+              
+             </div>
+             
           </tbody>
        </table>
     </div>
+    
+    <script>
+      $(document).ready(function(){
+    	  
+    	  $("#delBtn").on("click", function(e){
+    		  e.preventDefault();
+    		  
+    		  let bookingId = $(this).data('booking-id');
+    		  
+    		  $.ajax({
+    			  type:'delete'
+    			  ,url: 'lesson06/delete_booking'
+    			  ,data: {'booking_id': bookingId}
+    		      ,success: function(data){
+    		    	  if(data.result == "success"){
+    		    		  location.reload();
+    		    	  }else{
+    		    		  alert("삭제 실패");
+    		    	  }
+    		      }
+    		      ,error: function(e){
+    		    	  alert('error' + e);
+    		      }
+    		  });
+    	  });
+    	  
+      });
+    </script>
 </body>
 </html>

@@ -9,4 +9,6 @@ import com.quiz.lesson06.model.Booking;
 @Repository
 public interface BookingDAO {
    public List<Booking> selectBookingList();
+   
+   public int deleteBookingById(int id);
 }
